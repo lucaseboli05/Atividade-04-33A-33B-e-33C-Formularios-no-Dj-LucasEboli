@@ -1,0 +1,8 @@
+<h1>Você tem certeza que deseja remover a Experiência?</h1>
+
+<form method="post">
+  {% csrf_token %}
+  {{ delete_experiencia.as_p }}
+  <input type="submit" name="confirm" value="Sim">
+  <input type="submit" value="Não">
+</form>

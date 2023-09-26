@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Página Lucas Ratto Eboli</title>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+  <div class="fundo">
+    <h1 style='text-align: center;'>Lucas Ratto Eboli</h1>
+    <div class='texto'>
+      <p style="text-align: center">Olá pessoal, me chamo Lucas e estou criando esta página para falar sobre uma das minhas maiores paixões, o <u>futebol</u>. Mas não irei falar sobre futebol em geral, falarei mais especificamente sobre o meu time do <b class='cor'>coração</b>, o <i>Clube de Regatas do Flamengo</i> (CRF). Vou falar sobre a história desse time amado por mais de <b>48 milhões</b> de pessoas espalhadas pelo mundo inteiro.</p>
+    </div>
+    <div class="centro">
+      <div><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Flamengo_braz_logo.svg/1200px-Flamengo_braz_logo.svg.png' width=200> </div>
+    </div>
+    <div class='texto'>
+      <h3 style='text-align: center;'>Glória Eterna 2019</h3>
+      <p style='text-align: center;'>Em 2019, para matar todos os fanáticos torcedores do coração, o Flamengo buscou o título empatando aos 44 do segundo tempo e virando nos acréscimos aos 46 do segundo tempo, contra o multicampeão e potência argentina, <i>River Plate</i>. Abaixo, segue um mini documentário produzido pela <i>Conmebol Libertadores</i> sobre o histórico título do clube carioca:</p>
+    </div>
+    <p style='text-align: center;'> <a href="https://www.youtube.com/watch?v=LhyOlpEGLLo&ab_channel=CONMEBOLLibertadores" target="_blank">23/11, Glória Eterna ao Flamengo</a>. </p>
+    <div class="centro">
+      <div><img src='https://cassiozirpoli.com.br/wp-content/uploads/2019/11/2019_flamengo_2x1_river_plate_final_da_libertadores_em_lima_700_2.jpg' width=500> </div>
+    </div>
+    
+    <h3 style='text-align: center;'>Ídolos Flamengo</h3> 
+    <div class='texto'>
+      <p style='text-align: center;'>Após 127 anos de muita história, há diversos jogadores que fizeram história pelo clube que eu poderia montar uma lista enorme sobre eles, mas aqui está o meu top 5:</p>
+    </div>
+    <div class="centro">
+      <div><img src='https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_300,h_210/https://blog.espacorubronegro.com.br/wp-content/uploads/2021/04/capa-idolos-flamengo-300x210.jpg' width=500> </div>
+    </div>
+    <div class="centro">
+      <h2>Top 5 Ídolos do Flamengo</h2>
+</div>
+<div class='texto'>
+  <div class="centro">
+    <ol>
+      {% for idol in idolos %}
+      <li>
+        {{ idol.player }}
+        <a href='/idolos/update/{{ idol.id }}'>Atualizar</a>
+        <a href='/idolos/delete/{{ idol.id }}'>Remover</a>
+      </li>
+      {% endfor %}
+    </ol>
+    <div class="form">
+      <h3 style='text-align: center;'>Deseja Adicionar um Ídolo?</h3>
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ idolo_form.as_p }}
+        <button type="submit">Adicionar</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+    <h3 style='text-align: center;'> Experiências pessoais </h3>
+    <div class='texto'>
+      <p style='text-align: center;'>Já passei por diversas emoções acompanhando esse clube e vivi muitas experiências, abaixo, irei colocar algumas experiências marcantes que passei relacionadas ao Flamengo</p>
+    </div>
+    <div class="centro">
+      <div><img src='https://static-wp-tor15-prd.torcedores.com/wp-content/uploads/2019/12/flamengo-x-liverpool.jpg' width=500> </div>
+    </div>
+    <div class="centro">
+      <h2>Minhas experiências mais marcantes com o Flamengo</h2>
+      <div class='texto'>
+        <ul>
+          {% for experi in exp %}
+          <li>{{ experi.experiences }}
+            <a href='/exp/update/{{ experi.id }}'>Atualizar</a>
+            <a href='/exp/delete/{{ experi.pk }}'>Remover</a>
+          </li>
+          {% endfor %}
+          </ul>
+        <div class="centro">
+          <a href="{% url 'create_experiencia' %}" class="btn btn-primary">Adicionar Experiência</a>
+          </div/>
+      </div>
+    </div>
+    <h3 style='text-align: center;'>Títulos Flamengo</h3>
+    <div class='texto'>
+      <p style='text-align: center;'>Agora para finalizar a página, irei colocar a enorme lista de títulos (apenas relevantes) do maior clube do mundo.</p>
+    </div>
+    <div class="centro">
+      <div><img src='https://conteudo.cbf.com.br/cdn/thumbs/910x0/201912/20191213105156_168.jpeg' width=500> </div>
+    </div>
+    <div class="centro">
+      <table border="1" class='tabela'>
+        <tr>
+        <th>Títulos</th>
+        <th>Quantidade</th>
+      </tr>
+      {% for tit in titulos %}
+      <tr>
+        <td>{{ tit.campeonato }}</td>
+        <td>{{ tit.quantidade }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+</body>
+</html>

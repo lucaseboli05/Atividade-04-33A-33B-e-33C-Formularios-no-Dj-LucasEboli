@@ -1,0 +1,54 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+.texto{
+  font-family: Georgia, 'Times New Roman', Times, serif ;
+  font-size: 20px ;
+  
+  }
+
+.centro{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cor{
+  color: #C30000
+}
+
+.tabela {
+  background-color: #D0000E;
+  color: white;
+  margin: 20px;
+  
+}
+
+.fundo{
+  background: lightcoral;
+  border: 5px solid black;
+}
+
+
+
+form {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 400px; 
+    color: white;
+    border:3px solid black; 
+    background-color: #D0000E;
+    padding: 20px;
+}
+
+zoom {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 400px; 
+    color: white;
+    border:3px solid black; 
+    background-color: #D0000E;
+    padding: 20px;
+    zoom: 175%;
+}
